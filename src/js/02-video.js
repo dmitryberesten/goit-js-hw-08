@@ -1,7 +1,7 @@
 import Player from '@vimeo/player';
 import { throttle } from 'lodash';
 
-// Знаходження на сторінці айфрейма
+// Знаходження на сторінці айфрейма 
 const iframe = document.querySelector('iframe');
 
 // Створення екземпляра
@@ -14,7 +14,7 @@ player.on('timeupdate', throttle(e => {
   localStorage.setItem('videoplayer-current-time', e.seconds);
 }, 1000) // Час відтворення оновлюється у сховищі не частіше, ніж раз на секунду
 );
- 
+
 // Відновлення відтворення зі збереженої позиції під час перезавантаження сторінки.
 // Якщо пустий localStorage - getItem повертає null. Засетиться 0.
 player
