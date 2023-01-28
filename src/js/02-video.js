@@ -15,11 +15,9 @@ player.on('timeupdate', throttle(e => {
 }, 1000) // Час відтворення оновлюється у сховищі не частіше, ніж раз на секунду
 );
 
-// Відновлення відтворення зі збереженої позиції під час перезавантаження сторінки
+// Відновлення відтворення зі збереженої позиції під час перезавантаження сторінки.
+// Якщо пустий localStorage - getItem повертає null. Засетиться 0.
 player
-  .setCurrentTime(localStorage.getItem('videoplayer-current-time'))
-  .catch(function (error) {
-    console.error(error) // В разі помилки вивести повідомлення
-  });
+  .setCurrentTime(localStorage.getItem('videoplayer-current-time') || 0)
 
 // Діма Берестень

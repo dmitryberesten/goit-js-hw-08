@@ -22,7 +22,13 @@ form.addEventListener(
 
 // Додаємо слухача події submit до форми
 form.addEventListener('submit', e => {
+
   e.preventDefault(); // відміна оновлення сторінки
+
+  // Перевірка чи заповнені всі поля форми
+  if (email.value === '' || message.value === '') {
+    return alert('Заповніть всі поля!');
+  }
 
   // Виведення у консоль об'єкта з полями та їхніми поточними значеннями
   console.log({ email: email.value, message: message.value });
@@ -51,8 +57,8 @@ const storageData = load(LOCALSTORAGE_KEY);
 // Перевірка стану сховища.
 // Якщо  в сховищі є збережені дані - заповнити ними поля форми.
 if (storageData) {
-  email.value = storageData.email;
-  message.value = storageData.message;
+  email.value = storageData.email || '';
+  message.value = storageData.message || '';
 } // В іншому випадку поля будуть порожніми
 
 // Діма Берестень
