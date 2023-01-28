@@ -57,8 +57,8 @@ const storageData = load(LOCALSTORAGE_KEY);
 // Перевірка стану сховища.
 // Якщо  в сховищі є збережені дані - заповнити ними поля форми.
 if (storageData) {
-  email.value = storageData.email || '';
-  message.value = storageData.message || '';
+  email.value = storageData.email;
+  message.value = storageData.message;
 } // В іншому випадку поля будуть порожніми
 
 // Діма Берестень
